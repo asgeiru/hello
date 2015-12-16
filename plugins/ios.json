@@ -1,0 +1,21 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "org.asgeiru.hello"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.asgeiru.hello"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "org.asgeiru.hello"
+        }
+    },
+    "dependent_plugins": {}
+}
