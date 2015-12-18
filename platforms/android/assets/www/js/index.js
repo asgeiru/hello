@@ -76,7 +76,14 @@ var app = {
 
         push.on('notification', function(data) {
             console.log(data);
-            $('.feedback').html(data.message + '.<br />Redirecting to: '+data.additionalData.customData.redirectAction+'<br /><br />Raw data: '+JSON.stringify(data));
+            var dataToWrite = '';
+            if(device.platform.toLowerCase() === 'android'){
+                dataToWrite = data.message + '.<br />Redirecting to: '+data.additionalData.customData.redirectAction+'<br /><br />Raw data: '+JSON.stringify(data);
+            } 
+            if(device.platform.toLowerCase() === 'ios') {
+                dataToWrite = data.message + '.<br />Redirecting to: '+data.additionalData.loc-args+'<br /><br />Raw data: '+JSON.stringify(data);
+            }
+            $('.feedback').html(dataToWrite);
             //alert(data.title+" Message: " +data.message);
             // data.title,
             // data.count,
