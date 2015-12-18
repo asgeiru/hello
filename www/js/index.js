@@ -76,7 +76,12 @@ var app = {
 
         push.on('notification', function(data) {
             console.log(data);
-            $('.feedback').html(data.message + '.<br />Redirecting to: '+data.additionalData.customData.redirectAction+'<br /><br />Raw data: '+JSON.stringify(data));
+            if(typeof data.additionalData !== 'undefined' && typeof data.additionalData.customData !== 'undefined' && typeof data.additionalData.customData.redirectAction !== 'undefined'){
+                $('.feedback').html(data.message + '.<br />Redirecting to: '+data.additionalData.customData.redirectAction+'<br /><br />Raw data: '+JSON.stringify(data));
+            } 
+            if(typeof data.additionalData !== 'undefined' && typeof data.additionalData.loc-args !== 'undefined') {
+                $('.feedback').html(data.message + '.<br />Redirecting to: '+data.additionalData.loc-args+'<br /><br />Raw data: '+JSON.stringify(data));
+            }
             //alert(data.title+" Message: " +data.message);
             // data.title,
             // data.count,
